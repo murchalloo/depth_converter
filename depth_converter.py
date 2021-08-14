@@ -60,6 +60,10 @@ class Example(Frame):
         self.cb = Checkbutton(self, text="Enable Preview", bg="#1e1e1e", foreground="white", selectcolor="#282828", activebackground='#282828', variable=self.var)
         self.cb.pack(fill=X, side=TOP, expand=0, padx=5, pady=5)
 
+        self.varBit = BooleanVar()
+        self.cbBit = Checkbutton(self, text="16/24bit processing", bg="#1e1e1e", foreground="white", selectcolor="#282828", activebackground='#282828', variable=self.varBit)
+        self.cbBit.pack(fill=X, side=TOP, expand=0, padx=5, pady=5)
+
         self.btnProcess = Button(self, text="Process", command=self.Process, bg="#5378ba",  foreground="white", activebackground='#3c537a') 
         self.btnProcess.pack(fill=X, side=BOTTOM, expand=0, padx=5, pady=5)
         self.btnProcess["state"] = DISABLED
@@ -81,7 +85,13 @@ class Example(Frame):
         name = filename.split('.')
         print(name[0])
         img = cv.imread(self.filedir, cv.IMREAD_UNCHANGED)
-        arr = np.array([256.0*256.0, 256.0, 4096.0])
+        if self.varBit.get():
+            arr = np.array([256.0*256.0, 256.0, 256.0*256.0*256.0])
+        else:
+            arr = np.array([256.0*256.0, 256.0, 1.0])
+            b,g,r = cv.split(img)
+            r = r * 0
+            img = cv.merge((b,g,r))
         arr = (1.0 / arr)
         img = (img.dot(arr)) * (256.0*256.0*256.0) / (256.0*256.0*256.0 - 1.0)
         imgPreview = img
