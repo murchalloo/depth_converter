@@ -51,10 +51,10 @@ uniform int Depth_Map <
 
 uniform float Depth_Map_Adjust <
  ui_type = "drag";
- ui_min = 0.25; ui_max = 250.0;
+ ui_min = 0.25; ui_max = 256.0;
  ui_label = "Depth Map Adjustment";
  ui_tooltip = "Adjust the depth map and sharpness.";
-> = 250.0;
+> = 256.0;
 
 uniform float Offset <
  ui_type = "drag";
