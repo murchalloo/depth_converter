@@ -47,14 +47,14 @@ uniform int Depth_Map <
  ui_items = "Normal\0Reversed\0";
  ui_label = "Custom Depth Map";
  ui_tooltip = "Pick your Depth Map.";
-> = 0;
+> = 1;
 
 uniform float Depth_Map_Adjust <
  ui_type = "drag";
  ui_min = 0.25; ui_max = 250.0;
  ui_label = "Depth Map Adjustment";
  ui_tooltip = "Adjust the depth map and sharpness.";
-> = 5.0;
+> = 250.0;
 
 uniform float Offset <
  ui_type = "drag";
@@ -66,7 +66,7 @@ uniform float Offset <
 uniform bool PackDepth <
  ui_label = "PackDepth 24";
  ui_tooltip = "Use this toggle to pack depth in to RGB So it can be unpacked later.";
-> = false;
+> = true;
 
 uniform bool Depth_Map_Flip <
  ui_label = "Depth Map Flip";
@@ -154,9 +154,9 @@ sampler SDepth
 #define pix float2(BUFFER_RCP_WIDTH, BUFFER_RCP_HEIGHT)
 
 float3 PackDepth24( in float depth )
-{  
+{
     float depthVal = depth * (256.0*256.0*256.0 - 1.0) / (256.0*256.0*256.0);
-    float4 encode = frac( depthVal * float4(256.0*256.0*256.0, 256.0, 256.0*256.0, 256.0*256.0*256.0) );//float4 encode = frac( depthVal * float4(1.0, 256.0, 256.0*256.0, 256.0*256.0*256.0) );
+    float4 encode = frac( depthVal * float4(1.0, 256.0, 256.0*256.0, 256.0*256.0*256.0) );
     return encode.xyz - encode.yzw / 256.0 + 1.0/512.0;
 }
 
@@ -264,8 +264,6 @@ float4 Out(float4 position : SV_Position, float2 texcoord : TEXCOORD) : SV_Targe
    color = texcoord.y < 0.5 ? Co : PackDepth ? float4(PackDepth24( zBuffer(TCR).x ),1.0) : zBuffer(TCR).x;
  }
 
- 
-
  if(Plus_Depth == 4)
    color = tex2D(SColor,StoreTC);
 
@@ -275,15 +273,7 @@ float4 Out(float4 position : SV_Position, float2 texcoord : TEXCOORD) : SV_Targe
  if (Plus_Depth == 0)
  color = tex2D(BackBufferL, texcoord);
 
- if  (PackDepth) {
-  return color;
- }
- else
- {
-  color = float4(color.g,color.g,color.g,1.0);
-  return color;
- }
- 
+ return color;
 }
 
 void S_BB(float4 position : SV_Position, float2 texcoord : TEXCOORD, out float4 PastC : SV_Target0, out float4 PastD : SV_Target1)
@@ -302,7 +292,7 @@ void PostProcessVS(in uint id : SV_VertexID, out float4 position : SV_Position, 
  position = float4(texcoord * float2(2.0, -2.0) + float2(-1.0, 1.0), 0.0, 1.0);
 }
 
-technique Depth_Tool_Modded
+technique Depth_Tool
 {
      pass StoreColorDepth
    {
