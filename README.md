@@ -1,12 +1,7 @@
-### Depth Converter v1.1 
+### Depth Converter v1.2 
 **for Depth_Tool.fx packed depth**<br />
 
-This small app unpack depth from [Depth_Tool.fx](https://github.com/BlueSkyDefender/Depth3D/blob/master/Shaders/Others/Depth_Tool.fx) Reshade shader. Final image can be exported to 32bit .exr (recomended), 8bit .png or 8bit .bmp from imported 8bit .png, .bmp or .jpg. The exported file is located in the output folder next to the exe.
-
-**Comparison**<br />
-16/24bit processing comparison with using Depth_Tool_Modded.fx to export packed depth
-
-![alt text](https://i.ibb.co/wYwvbFv/comparison.jpg)
+This small app unpack depth from [Depth_Tool.fx](https://github.com/BlueSkyDefender/Depth3D/blob/master/Shaders/Others/Depth_Tool.fx) Reshade shader. Final image export to 32bit .exr from imported 8bit .bmp (currently supports .bmp only). The exported file is located in the output folder next to the exe.
 
 ### Version history
 
@@ -16,3 +11,8 @@ This small app unpack depth from [Depth_Tool.fx](https://github.com/BlueSkyDefen
 **v1.1**<br />
 - Added Depth_Tool_Modded.fx for better export
 - Added 16/24bit processing checkbox
+
+**v1.2**<br />
+- Deleted Depth_Tool_Modded. fx, no longer required
+- Deleted 16/24bit processing checkbox, no longer required
+- Added original Depth_Tool.fx with preset settings for export
