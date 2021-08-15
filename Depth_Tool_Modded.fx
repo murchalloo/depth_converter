@@ -83,7 +83,7 @@ uniform int Plus_Depth <
  ui_items = " Color\0 2D + Depth Side by Side\0 2D + Depth Side by Side AR\0 2D + Depth Top n Bottom\0 Stored Color\0 Stored Depth\0";
  ui_label = "2D + Depth Selection";
  ui_tooltip = "Pick your Output.";
-> = 6;
+> = 5;
 
 uniform bool SCD <
  ui_label = "Store Color & Depth";
