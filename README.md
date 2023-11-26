@@ -29,6 +29,6 @@ This app unpacks 32bit .exr depth from 8bbp .bmp screenshot made with [Depth_Too
 - - - -
 # Fork changelog
 - Added requirements.txt
-- Fixed the *OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option* error in depth_converter.py
+- Fixed the `OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option` error in depth_converter.py
 - Changed the app structure a little bit
 - Wrote readable readme.md
