@@ -15,7 +15,8 @@ This app unpacks 32bit .exr depth from 8bbp .bmp screenshot made with [Depth_Too
 2. In the app's root folder run `pip install -r requirements.txt` to install all the required modules<br/>
   
 **step 4**<br/>
-- Make screenshot in ReShade ***You should save it as a .bmp file (more instructions are [here](https://framedsc.com/ReshadeGuides/depthguide.htm#high-range-depth-export))***. It should look like this ![greeny-yellow screenshot of depthmap](https://framedsc.com/Images/depthguide/hrd_goodeg.png)<br/>
+- Make screenshot in ReShade ***You should save it as a .bmp file (more instructions are [here](https://framedsc.com/ReshadeGuides/depthguide.htm#high-range-depth-export))***. It should look like this <br/> ![greeny-yellow screenshot of depthmap](https://framedsc.com/Images/depthguide/hrd_goodeg.png)<br/>
+  
 **step 5**<br/>
 - Run the depth_converter.py and enjoy :)
   
