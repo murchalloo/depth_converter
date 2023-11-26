@@ -5,9 +5,9 @@ This app unpacks 32bit .exr depth from 8bbp .bmp screenshot made with [Depth_Too
 ### Installation
 **step 1**<br/>
 1. Download .zip file of the code and unpack it.
-2. or ```
-   git clone https://github.com/sterilija/-fork-depth_converter.git```
-  
+2. or```
+   git clone https://github.com/sterilija/-fork-depth_converter.git
+   ```  
 **step 2**<br/>
 - Put the ***Depth_Tool.fx*** from _/Shaders_ into your game's _resade-shaders/Shaders_ folder
   
