@@ -5,7 +5,8 @@ This app unpacks 32bit .exr depth from 8bbp .bmp screenshot made with [Depth_Too
 ### Installation
 **step 1**<br/>
 1. Download .zip file of the code and unpack it.
-2. or```
+2. or
+   ```
    git clone https://github.com/sterilija/-fork-depth_converter.git
    ```  
 **step 2**<br/>
