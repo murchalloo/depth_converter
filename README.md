@@ -13,8 +13,9 @@ This app unpacks 32bit .exr depth from 8bbp .bmp screenshot made with [Depth_Too
 - Put the ***Depth_Tool.fx*** from ``/Shaders`` into your game's ``resade-shaders/Shaders`` folder
   
 **step 3**<br/>
-1. Install TKinter (if it haven't been) [following these instructions](https://tkdocs.com/tutorial/install.html)
-2. In the app's root folder run
+1. Install ``python`` on your system
+2. Install TKinter (if it haven't been) [following these instructions](https://tkdocs.com/tutorial/install.html)
+3. In the app's root folder run
    ```
    pip install -r requirements.txt
    ```
