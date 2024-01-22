@@ -1,18 +1,34 @@
-### Depth Converter v1.2 
-**for Depth_Tool.fx packed depth**<br />
+# Fork of [Moorchallo's depth_converter](https://github.com/murchalloo/depth_converter)
 
-This small app unpack depth from [Depth_Tool.fx](https://github.com/BlueSkyDefender/Depth3D/blob/master/Shaders/Others/Depth_Tool.fx) Reshade shader. Final image export to 32bit .exr from imported 8bit .bmp (currently supports .bmp only). The exported file is located in the output folder next to the exe.
+This app unpacks 32bit .exr depth from 8bbp .bmp screenshot made with [Depth_Tool.fx](https://github.com/BlueSkyDefender/Depth3D/blob/master/Shaders/Others/Depth_Tool.fx) Reshade shader. **It only supports .bmp files**. The export file's being put into _/output_ that creates in the root folder.
 
-### Version history
+### Installation
+**step 1**<br/>
+1. Download .zip file of the code and unpack it or
+   ```
+   git clone https://github.com/sterilija/-fork-depth_converter.git
+   ```  
+**step 2**<br/>
+- Put the ***Depth_Tool.fx*** from ``/Shaders`` into your game's ``resade-shaders/Shaders`` folder
+  
+**step 3**<br/>
+1. Install ``python`` on your system
+2. Install TKinter (if it haven't been) [following these instructions](https://tkdocs.com/tutorial/install.html)
+3. In the app's root folder run
+   ```
+   pip install -r requirements.txt
+   ```
+   to install all the required modules<br/>
+  
+**step 4**<br/>
+- Make screenshot in ReShade ***You should save it as a .bmp file (more instructions are [here](https://framedsc.com/ReshadeGuides/depthguide.htm#high-range-depth-export))***. It should look like this <br/> ![greeny-yellow screenshot of depthmap](https://framedsc.com/Images/depthguide/hrd_goodeg.png)<br/>
+  
+**step 5**<br/>
+- Run the depth_converter.py and enjoy :)
 
-**v1.0**<br />
-- Release
-
-**v1.1**<br />
-- Added Depth_Tool_Modded.fx for better export
-- Added 16/24bit processing checkbox
-
-**v1.2**<br />
-- Deleted Depth_Tool_Modded. fx, no longer required
-- Deleted 16/24bit processing checkbox, no longer required
-- Added original Depth_Tool.fx with preset settings for export
+- - - -
+# Fork changelog
+- Added requirements.txt
+- Fixed the `OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR' option` error in depth_converter.py
+- Changed the app structure a little bit
+- Wrote readable readme.md

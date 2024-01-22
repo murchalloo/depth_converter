@@ -1,3 +1,5 @@
+import os
+os.environ["OPENCV_IO_ENABLE_OPENEXR"]="1"
 import numpy as np
 import cv2 as cv
 import ntpath
